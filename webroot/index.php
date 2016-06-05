@@ -157,21 +157,6 @@ $app->router->add('logout', function() use ($app) {
 
 });
 
-$app->router->add('qdbc', function() use ($app) {
-
-    $app->dispatcher->forward([
-        'controller' => 'questions',
-        'action'     => 'create-Database',
-    ]);
-});
-
-$app->router->add('qdbtc', function() use ($app) {
-
-    $app->dispatcher->forward([
-        'controller' => 'tags',
-        'action'     => 'create-Database',
-    ]);
-});
 
 $app->router->add('questions', function() use ($app) {
 
@@ -194,20 +179,6 @@ $app->router->add('tags', function() use ($app) {
         'action'     => 'tag',
     ]);
 
-});
-
-$app->router->add('cdbc', function() use ($app) {
-    $app->dispatcher->forward([
-        'controller' => 'Comments',
-        'action'     => 'create-Database',
-    ]);
-});
-
-$app->router->add('cdbr', function() use ($app) {
-    $app->dispatcher->forward([
-        'controller' => 'Comments',
-        'action'     => 'reset-Database',
-    ]);
 });
 
 
