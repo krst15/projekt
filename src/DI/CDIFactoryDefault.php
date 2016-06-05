@@ -3,7 +3,7 @@
 namespace Anax\DI;
 
 /**
- * Anax base class implementing Dependency Injection / Service Locator
+ * Anax base class implementing Dependency Injection / Service Locator 
  * of the services used by the framework, using lazy loading.
  *
  */
@@ -19,12 +19,7 @@ class CDIFactoryDefault extends CDI
 
         require ANAX_APP_PATH . 'config/error_reporting.php';
 
-        $this->setShared('response', function () {
-            $response = new \Anax\Response\CResponseBasic();
-            $response->setDI($this);
-            return $response;
-        });
-
+        $this->setShared('response', '\Anax\Response\CResponseBasic');
         $this->setShared('validate', '\Anax\Validate\CValidate');
         $this->setShared('flash', '\Anax\Flash\CFlashBasic');
         

@@ -12,12 +12,12 @@ trait TInjectionAware
     /**
      * Properties
      */
-    protected $di; // the service container
+    protected $di; // the service container 
 
     /**
      * Set the service container to use
      *
-     * @param object $di a service container
+     * @param class $di a service container
      *
      * @return $this
      */

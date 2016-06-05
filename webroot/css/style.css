@@ -3,95 +3,271 @@
  */
 
 @import url(figure.css);
+@import url(form.css);
+@import url(navbar_me.css);
+@import url(question.css);
+@import url(tags.css);
+@import url(profil.css);
+@import url(https://fonts.googleapis.com/css?family=Archivo+Narrow);
+
+
+html, * {
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  color: #333;
-  font-family: arial, sans-serif;
+  background: #222222;
+  margin: 0 auto;
+  color: #584E3F;
+  font-family: 'Archivo Narrow', sans-serif;
+  /*font-size: 1em;*/
   overflow-y: scroll;
 }
 
-h1 {
-  font-size: 2.2em;
+body p {
+    width:55%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 
-/**
- * Layout of the main page elements 
- */
+a {
+  color: #000;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+   cursor: pointer;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+    padding: 7px 0;
+}
+h1 {font-size: 1.5em; padding: 20px 0; font-family: 'Archivo Narrow', sans-serif;}
+h2 {font-size: 1.35em;}
+h3 {font-size: 1.2em;}
+h4 {font-size: 1.0em;}
+h5 {font-size: 0.8em;}
+h6 {font-size: 0.7em;}
+
+hr {
+  color: #ddd;
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+ display: block;
+ margin: 30px 0;
+  width: 500px;
+  text-align: center;
+}
+
+.left {float: left;}
+.right {float: right;}
+.clear {clear: both;}
+
 #wrapper {
   margin: 0 auto;
-  width: 980px; 
+  width: 960px;
   padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#header-section {
+  background: #141414;
+  height: 75px;
+  width: 100%;
+}
+
+#header-section #header-wrapper {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 100px;
+  height: 75px;
+}
+
+#header-section header {
+    font-family: 'Archivo Narrow', sans-serif;
+  float: left;
+  line-height: 75px;
+}
+#header-section header small {
+  color: #fff;
+  font-size: 12px;
+}
+
+#header-section big {
+    margin-left: 280px;
 }
 
 
-/**
- * Layout for header
- */
-#header {
+
+
+#main-section {
+  max-width: 1090px;
+  margin: 0 auto;
+  min-height: 720px;
+  padding: 80px 100px;
+}
+
+
+
+#main-section-split .article1 {
+  width: 60%;
+  border: 0px solid #ddd;
+  margin-top: 0px;
+  padding: 0px 60px;
+  background: #fff;
+  border-radius: 5px 5px 0 0;
+  line-height: 170%;
+}
+
+#main-section .article1 {
+  width: 100%;
+  border: 0px solid #ddd;
+  margin-top: 0px;
+  padding: 0px 60px;
+  background: #789;
+  border-radius: 5px 5px 0 0;
+  line-height: 170%;
+}
+
+#main-section .article1 p {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+#main-section .article1 code {
+  background: #789;
+  padding: 5px;
+}
+
+#main-section .article1 .left {
+    float: left;
+    width: 60%;
+}
+
+blockquote {
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 30px 30px 30px 90px;
+  margin: 20px;
   position: relative;
-  margin-bottom: 40px;
+  line-height: 170%;
+  font-family: 'Archivo Narrow', sans-serif;
 }
 
-.sitetitle {
+blockquote::before {
+  content: "”";
+  display: block;
+  left: 0;
+  top: 0;
+  padding: 70px 20px;
+  color: #ca2017;
+  font-size: 8em;
   position: absolute;
-  top: 6px;
-  left: 130px;
-  font-size: 48px;
-}
-
-.siteslogan {
-  position: absolute;
-  top: 65px;
-  left: 130px;
-  font-style: italic;
-  color: #666;
+  text-align: center;
+  font-family: Georgia;
+  font-style: normal;
 }
 
 
-/**
- * Layout for main
- */
-#main {
-  min-height: 20em;
+#footer-section {
+  width: 100%;
+  background: #999;
+  border: 1px solid #000;
+  height: 50px;
 }
 
-
-/**
- * Layout for footer
- */
-#footer {
-  margin-top: 40px;
-  border-top: 1px solid #ccc;
-  padding-top: 22px;
+#footer-section footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 100px;
+  line-height: 50px;
+  font-family: 'Archivo Narrow', sans-serif;
+  color: #000;
+  text-align: center;
+  font-size: 12px;
 }
 
-.sitefooter {
-  color: #666;
+#footer-section .left, #footer-section .right {
+  width: 300px;
 }
 
-
-/**
- * For articles
- */
-.article1 {
-  width: 700px;
-  border-right: 1px solid #ccc;
-  padding-right: 1em;
+#footer-section footer a {
+    color: #789;
+    text-decoration: underline;
 }
 
-.article1 h1,
-.article1 h2 {
-  border-bottom: 1px solid #ccc;
+#footer-section .left {
+  text-align: left;
+}
+#footer-section .right {
+  text-align: right;
+
 }
 
-.byline {
-  margin-top: 44px;
-  border-top: 1px dashed #ccc;
-  padding-top: 22px;
-  color: #666;
+#footer-section a {
+  color: #ff6710;
 }
 
-.byline p {
-  margin-top: 0;
+#footer-section a:hover {
+  color: #CF530D;
+}
+
+#widget {
+    margin: 0px;
+}
+
+#widget ul {
+    background: #999;
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+#widget li {
+    list-style: none;
+    padding: 5px;
+    border-bottom: 1px solid #000;
+}
+
+#widget li .by {
+    font-size: 11px;
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
+#widget i {
+    margin-left: 10px;
+    color: #000;
+}
+
+#widget .answercount {
+    max-width: 2em;
+    font-size: 11px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 1em;
+    text-align: center;
+    margin-right: 1em;
+    color: #fff;
+}
+
+#widget .left {
+    max-width: 350px;
+    float: none;
+}
+
+#widget .right {
+    max-width: 350px;
+    float: none;
+}
+.content {
+    color: #fff;
 }

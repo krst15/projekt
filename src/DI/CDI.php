@@ -33,11 +33,12 @@ class CDI implements IDI
     /**
      * Return an arry with all loaded services names.
      *
-     * @return array
+     * @return void
      */
     public function getServices()
     {
         return array_keys($this->loaded);
+        
     }
 
 
@@ -45,7 +46,7 @@ class CDI implements IDI
     /**
      * Return an array with all loaded services that are controllers.
      *
-     * @return array
+     * @return void
      */
     public function getControllers()
     {
@@ -62,7 +63,7 @@ class CDI implements IDI
     /**
      * Return an arry with all active services names.
      *
-     * @return array
+     * @return void
      */
     public function getActiveServices()
     {
@@ -80,7 +81,7 @@ class CDI implements IDI
      *      actually load, insantiate, the serviceobject.
      * @param boolean $singleton set if service is to act as singleton or not, default is false.
      *
-     * @return void
+     * @return nothing.
      */
     public function set($service, $loader, $singleton = false)
     {
@@ -99,7 +100,7 @@ class CDI implements IDI
      *                        instance of the service object. Its the way
      *                        to actually load, insantiate, the serviceobject.
      *
-     * @return void
+     * @return nothing.
      */
     public function setShared($service, $loader)
     {
@@ -114,7 +115,7 @@ class CDI implements IDI
      * @param string $service as a service label, naming this service.
      *
      * @return object as instance of the service object.
-     * @throws \Exception when service accessed is not loaded.
+     * @throws Exception when service accessed is not loaded.
      */
     public function get($service)
     {
@@ -135,7 +136,7 @@ class CDI implements IDI
         natcasesort($services);
         $services = implode("\n", $services);
         $message .= " Loaded services are: <pre>$services</pre>";
-        
+
         throw new \Exception($message);
     }
 
@@ -147,7 +148,7 @@ class CDI implements IDI
      *
      * @param string $service name of class property not existing.
      *
-     * @return object as the service requested.
+     * @return class as the service requested.
      */
     public function __get($service)
     {
@@ -179,7 +180,7 @@ class CDI implements IDI
      * @param string $service   name of class property not existing.
      * @param array  $arguments currently NOT USED.
      *
-     * @return object as the service requested.
+     * @return class as the service requested.
      */
     public function __call($service, $arguments = [])
     {
@@ -194,7 +195,7 @@ class CDI implements IDI
      * @param string $service as a service label, naming this service.
      *
      * @return object as instance of the service object.
-     * @throws \Exception when service could not be loaded.
+     * @throws Exception when service could not be loaded.
      */
     protected function load($service)
     {
@@ -208,9 +209,7 @@ class CDI implements IDI
             try {
                 $this->active[$service] = $sol();
             } catch (\Exception $e) {
-                $msg = "CDI could not load service '$service'. Failed in the callback that instantiates the service. "
-                    . $e->getMessage();
-                throw new \Exception($msg);
+                throw new \Exception("CDI could not load service '$service'. Failed in the callback that instantiates the service. " . $e->getMessage());
             }
 
         } elseif (is_object($sol)) {
@@ -222,7 +221,7 @@ class CDI implements IDI
             $this->active[$service] = new $sol();
 
         } else {
-            throw new \Exception("CDI could not load service '$service'. It is unknown how to load it.");
+            throw new Exception("CDI could not load service '$service'. It is unknown how to load it.");
         }
 
         $this->$service = $this->active[$service];

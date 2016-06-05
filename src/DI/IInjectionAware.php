@@ -11,7 +11,7 @@ interface IInjectionAware
     /**
      * Set the service container to use
      *
-     * @param IDI $di a service container
+     * @param class $di a service container
      *
      * @return $this
      */

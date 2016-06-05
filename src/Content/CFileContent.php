@@ -24,9 +24,9 @@ class CFileContent
      *
      * @return string as content of the file
      *
-     * @throws \Exception when file does not exist
+     * @throws Exception when file does not exist
      */
-    public function get($file)
+    public function get($file) 
     {
         $target = $this->path . $file;
 
@@ -38,15 +38,15 @@ class CFileContent
     }
 
 
+
     /**
      * Set base path where  to find content.
      *
      * @param string $path where content reside
-     * 
+     *
      * @return $this
-     * @throws \Exception
      */
-    public function setBasePath($path)
+    public function setBasePath($path) 
     {
         if (!is_dir($path)) {
             throw new \Exception("Base path for file content is not a directory: " . $path);

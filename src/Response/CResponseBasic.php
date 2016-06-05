@@ -8,7 +8,6 @@ namespace Anax\Response;
  */
 class CResponseBasic
 {
-    use \Anax\DI\TInjectionAware;
 
 
     /**
@@ -43,17 +42,16 @@ class CResponseBasic
     public function checkIfHeadersAlreadySent()
     {
         if (headers_sent($file, $line)) {
-            $msg = "Trying to send headers but headers already sent, output started at $file line $line.";
-            throw new \Exception($msg);
+            throw new \Exception("Trying to send headers but headers already sent, output started at $file line $line.");
         }
     }
+
 
 
     /**
      * Send headers.
      *
-     * @return $this|void
-     * @throws \Exception
+     * @return $this
      */
     public function sendHeaders()
     {
@@ -97,7 +95,7 @@ class CResponseBasic
     public function redirect($url)
     {
         $this->checkIfHeadersAlreadySent();
-        $url = $this->di->get("url")->create($url);
+
         header('Location: ' . $url);
         exit();
     }

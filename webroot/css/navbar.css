@@ -1,75 +1,76 @@
 /**
- * Based on http://dbwebb.se/coachen/en-navbar-med-drop-down-meny-i-ren-html-och-css
- * Changed to only style li-items instead of a.
- */
-#navbar {
-  margin-bottom: 44px;
-}
+* Based on http://dbwebb.se/coachen/en-navbar-med-drop-down-meny-i-ren-html-och-css
+* Changed to only style li-items instead of a.
+*/
 
 .navbar {}
- 
-.navbar ul {
-  list-style: none; 
-  margin: 0; 
-  padding: 0;
-}
- 
-.navbar li {
-  display: inline-block;
-  border-top: 4px solid transparent; 
-  color: #333; 
-  position: relative; 
-}
- 
-.navbar a {
-  display: block;
-  width: 100%;
-  padding: 1em;
-  text-decoration: none;
-  color: inherit;
-  white-space: nowrap; 
+
+#header-section nav {
+ float: right;
+ line-height: 75px;
+ font-family: 'Roboto Slab', sans-serif;
 }
 
-.navbar li:hover {
-  color: #666; 
-  border-color: #666;
-} 
- 
-.navbar li.selected-parent, 
-.navbar li.is-parent, 
-.navbar li.selected {
-  color: #22f; 
-  border-color: #22f;
+#header-section nav ul {
+ list-style: none;
+ position: relative;
+ display: inline-block;
+}
+nav ul:after {
+ content: ""; clear: both; display: block;
 }
 
-.navbar ul ul {
-  background-color: #fff; 
-  padding: 8px; 
-  position: absolute; 
-  left: -9999px; 
-  z-index: 2;
-}
- 
-.navbar li li {
-  border-top: none;  
-  border-left: 4px solid transparent;  
+#header-section nav li {
+ list-style: none;
+ text-align: center;
+ padding: 0 10px;
+ margin: 0 0px;
 }
 
-.navbar li:hover ul {
-  left: 0;
-}
- 
-.navbar li li:hover {
-  color: #666; 
-  border-color: #666;
+#header-section nav ul li {
+ float: left;
+ margin: 0;
 }
 
-.navbar li li.selected {
-  color: #22f; 
-  border-color: #22f;
+#header-section nav ul li a {
+ display: block;
+
 }
 
-/* Just to sho off how class works */
-.navbar li .italic {
-  font-style: italic;
+#header-section nav ul ul {
+ padding: 0;
+ position: absolute;
+
+ margin: 0;
+ display: none;
+}
+
+#header-section nav ul ul li {
+ float: none;
+ position: relative;
+}
+
+#header-section nav ul li:hover > ul {
+   display: block;
+   position: absolute;
+  white-space: nowrap;
+  background: #333;
+  border: 1px solid #ddd;
+  margin: 0;
+}
+
+#header-section nav a {
+ color: #fff;
+ text-decoration: none;
+ margin: 0;
+ padding: 0;
+}
+
+#header-section nav a:hover {
+ color: #666;
+}
+
+#header-section nav .selected {
+ border-bottom: 3px solid #666;
+
 }

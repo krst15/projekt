@@ -52,7 +52,7 @@ class CRouterBasic implements \Anax\DI\IInjectionAware
      * @param string $rule   for this route
      * @param mixed  $action null, string or callable to implement a controller for the route
      *
-     * @return object as new route
+     * @return class as new route
      */
     public function add($rule, $action = null)
     {
@@ -76,7 +76,7 @@ class CRouterBasic implements \Anax\DI\IInjectionAware
      * @param string $rule   for this route
      * @param mixed  $action null, string or callable to implement a controller for the route
      *
-     * @return object as new route
+     * @return class as new route
      */
     public function addInternal($rule, $action = null)
     {
@@ -87,13 +87,14 @@ class CRouterBasic implements \Anax\DI\IInjectionAware
     }
 
 
+
     /**
      * Add an internal (not exposed to url-matching) route to the router.
      *
-     * @param string $rule for this route
+     * @param string $rule   for this route
+     * @param mixed  $action null, string or callable to implement a controller for the route
      *
-     * @return object as new route
-     * @throws \Anax\Exception\NotFoundException
+     * @return class as new route
      */
     public function handleInternal($rule)
     {
@@ -106,12 +107,11 @@ class CRouterBasic implements \Anax\DI\IInjectionAware
     }
 
 
+
     /**
      * Handle the routes and match them towards the request, dispatch them when a match is made.
      *
      * @return $this
-     * @throws \Anax\Exception\NotFoundException
-     * @throws \Exception
      */
     public function handle()
     {

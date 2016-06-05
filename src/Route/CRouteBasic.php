@@ -57,7 +57,7 @@ class CRouteBasic
     /**
      * Handle the action for the route.
      *
-     * @return mixed
+     * @return void
      */
     public function handle()
     {

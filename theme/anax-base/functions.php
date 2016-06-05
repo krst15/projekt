@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme related functions.
+ * Theme related functions. 
  *
  */
 
@@ -15,3 +15,5 @@
   return $title . $title_append;
 }
 */
+
+

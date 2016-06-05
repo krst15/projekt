@@ -6,37 +6,46 @@
 <?php if(isset($favicon)): ?><link rel='icon' href='<?=$this->url->asset($favicon)?>'/><?php endif; ?>
 <?php foreach($stylesheets as $stylesheet): ?>
 <link rel='stylesheet' type='text/css' href='<?=$this->url->asset($stylesheet)?>'/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <?php endforeach; ?>
 <?php if(isset($style)): ?><style><?=$style?></style><?php endif; ?>
 <script src='<?=$this->url->asset($modernizr)?>'></script>
 </head>
 
 <body>
+    <div id='wrapper'>
 
-<div id='wrapper'>
-
-<div id='header'>
-<?php if(isset($header)) echo $header?>
-<?php $this->views->render('header')?>
-</div>
-
+<div id='nav-wrap'>
+<div class='clear'></div>
 <?php if ($this->views->hasContent('navbar')) : ?>
-<div id='navbar'>
-<?php $this->views->render('navbar')?>
-</div>
-<?php endif; ?>
 
-<div id='main'>
+<?php $this->views->render('navbar')?>
+
+<?php endif; ?>
+<div class='clear'></div>
+</div>
+
+<?php if ($this->views->hasContent('sidebar')) : ?>
+<div id='main-section-split'>
+<?php if(isset($main)) echo $main?>
+<?php $this->views->render('main')?>
+<?php if(isset($sidebar)) echo $sidebar?>
+<?php $this->views->render('sidebar')?>
+</div>
+<?php else: ?>
+<div id='main-section'>
 <?php if(isset($main)) echo $main?>
 <?php $this->views->render('main')?>
 </div>
+<?php endif; ?>
 
-<div id='footer'>
+<div id='footer-section'>
 <?php if(isset($footer)) echo $footer?>
 <?php $this->views->render('footer')?>
 </div>
 
 </div>
+
 
 <?php if(isset($jquery)):?><script src='<?=$this->url->asset($jquery)?>'></script><?php endif; ?>
 

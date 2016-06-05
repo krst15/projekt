@@ -1,18 +1,13 @@
 <?php
-
 namespace Anax\HTMLForm;
-
 /**
  * Anax base class for wrapping sessions.
  *
  */
 class CFormExample extends \Mos\HTMLForm\CForm
 {
-    use \Anax\DI\TInjectionAware,
+    use \Anax\DI\TInjectionaware,
         \Anax\MVC\TRedirectHelpers;
-
-
-
     /**
      * Constructor
      *
@@ -46,9 +41,6 @@ class CFormExample extends \Mos\HTMLForm\CForm
             ],
         ]);
     }
-
-
-
     /**
      * Customise the check() method.
      *
@@ -59,26 +51,19 @@ class CFormExample extends \Mos\HTMLForm\CForm
     {
         return parent::check([$this, 'callbackSuccess'], [$this, 'callbackFail']);
     }
-
-
-
     /**
      * Callback for submit-button.
      *
      */
     public function callbackSubmit()
     {
-        $this->AddOutput("<p>DoSubmit(): Form was submitted.<p>");
-        $this->AddOutput("<p>Do stuff (save to database) and return true (success) or false (failed processing)</p>");
+        $this->AddOutput("<p><i>DoSubmit(): Form was submitted. Do stuff (save to database) and return true (success) or false (failed processing form)</i></p>");
         $this->AddOutput("<p><b>Name: " . $this->Value('name') . "</b></p>");
         $this->AddOutput("<p><b>Email: " . $this->Value('email') . "</b></p>");
         $this->AddOutput("<p><b>Phone: " . $this->Value('phone') . "</b></p>");
         $this->saveInSession = true;
         return true;
     }
-
-
-
     /**
      * Callback for submit-button.
      *
@@ -88,9 +73,6 @@ class CFormExample extends \Mos\HTMLForm\CForm
         $this->AddOutput("<p><i>DoSubmitFail(): Form was submitted but I failed to process/save/validate it</i></p>");
         return false;
     }
-
-
-
     /**
      * Callback What to do if the form was submitted?
      *
@@ -100,9 +82,6 @@ class CFormExample extends \Mos\HTMLForm\CForm
         $this->AddOUtput("<p><i>Form was submitted and the callback method returned true.</i></p>");
         $this->redirectTo();
     }
-
-
-
     /**
      * Callback What to do when form could not be processed?
      *

@@ -66,7 +66,7 @@ class CDispatcherBasic implements \Anax\DI\IInjectionAware
     /**
      * Check if a controller exists with this name.
      *
-     * @return bool
+     * @return void
      */
     public function isValidController()
     {
@@ -110,6 +110,8 @@ class CDispatcherBasic implements \Anax\DI\IInjectionAware
      */
     public function isCallable()
     {
+        $handler = [$this->controller, $this->action];
+
         if (!method_exists($this->controller, $this->action)) {
             return false;
         }
@@ -123,11 +125,11 @@ class CDispatcherBasic implements \Anax\DI\IInjectionAware
     }
 
 
+
     /**
      * Inspect if callable and throw exception if parts is not callable.
      *
-     * @return void
-     * @throws \Exception
+     * @return void.
      */
     public function isCallableOrException()
     {
@@ -137,6 +139,7 @@ class CDispatcherBasic implements \Anax\DI\IInjectionAware
         $isCallable = null;
 
         if ($validController) {
+            $handler = [$this->controller, $this->action];
             $isMethod   = method_exists($this->controller, $this->action);
             $isCallable = $this->isCallable();
         }
